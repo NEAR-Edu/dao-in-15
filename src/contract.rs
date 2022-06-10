@@ -98,7 +98,7 @@ impl DaoIn15 {
         self.members.remove(&member_id);
     }
 
-    pub fn vote(&mut self, proposal_id: ProposalId, is_yes: bool) {
+    pub fn vote(&mut self, proposal_id: ProposalId, is_yea: bool) {
         let predecessor = env::predecessor_account_id();
         require!(
             self.members.contains(&predecessor),
@@ -115,7 +115,7 @@ impl DaoIn15 {
             "Already voted"
         );
 
-        votes_for_proposal.insert(&predecessor, &if is_yes { Vote::Yea } else { Vote::Nay });
+        votes_for_proposal.insert(&predecessor, &if is_yea { Vote::Yea } else { Vote::Nay });
 
         self.votes.insert(&proposal_id, &votes_for_proposal);
     }
