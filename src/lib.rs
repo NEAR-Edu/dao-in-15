@@ -5,12 +5,12 @@ pub use contract::*;
 mod tests {
     use near_sdk::{test_utils::VMContextBuilder, testing_env, AccountId, VMContext};
 
-    use crate::Contract;
+    use crate::DaoIn15;
 
     #[test]
     fn test() {
         let owner: AccountId = "owner_id".parse().unwrap();
-        let mut dao = Contract::new(owner.clone());
+        let mut dao = DaoIn15::new(owner.clone());
         fn context(id: AccountId) -> VMContext {
             VMContextBuilder::new().predecessor_account_id(id).build()
         }

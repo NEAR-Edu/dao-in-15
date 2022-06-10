@@ -33,7 +33,7 @@ pub enum Vote {
 
 #[near_bindgen]
 #[derive(PanicOnDefault, BorshDeserialize, BorshSerialize)]
-pub struct Contract {
+pub struct DaoIn15 {
     pub owner_id: AccountId,
     pub members: UnorderedSet<AccountId>,
     pub proposals: Vector<Proposal>,
@@ -41,7 +41,7 @@ pub struct Contract {
 }
 
 #[near_bindgen]
-impl Contract {
+impl DaoIn15 {
     #[init]
     pub fn new(owner_id: AccountId) -> Self {
         Self {
